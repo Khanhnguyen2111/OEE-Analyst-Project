@@ -41,7 +41,8 @@ Công ty sản xuất vỏ ống nhựa chuyên đựng silicone:
 ## 2.Quy trình triển khai:
 ### Làm sạch dữ liệu với Python:
 Link Google Collab: https://colab.research.google.com/drive/1Sd5Ytxo4ZZAUzg-nViaIKhYms38vSiN-?usp=sharing
-Xử lí ô trống:
+
+Xử lí ô trống không có dữ liệu:
 
 ```Python #máy in không có mould id nên gán ký tự SC:
 df['mould_id'] = df['mould_id'].fillna('SC')
