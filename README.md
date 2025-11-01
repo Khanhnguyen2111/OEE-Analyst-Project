@@ -10,20 +10,25 @@ Mục tiêu:
 Dữ liệu:
 - Nguồn dữ liệu: file GoogleSheet của công ty (được nhập liệu hàng ngày).
 - Mô tả dữ liệu:
-+ Date: ngày hoạt động (date).
-+ MC: tên của máy đang hoạt động (string).
-+ WO: lệnh sản xuất-một đơn vị đo lường để thuận tiện kiểm soát/truy xuất thông tin (string).
-+ Item_ID: mã của sản phẩm đang sản xuất (string).
-+ Item name: tên của sản phẩm (string).
-+ Type: phân loại sản phẩm (string).
-+ Good_qty: số lượng sản phẩm đạt (int).
-+ Error_qty: số lượng sản phẩm lỗi (int).
-+ Plan_qty: số lượng sản phẩm mục tiêu (int).
-+ Start: giờ bắt đầu (time).
-+ End: giờ kết thúc (time).
-+ Lost_time: thời gian ngưng máy (loat).
-+ Reason: lí do ngưng máy (string).
-+ Shift: ca làm việc (ngày/đêm) (string).
++ Date: ngày hoạt động
++ MC: tên của máy đang hoạt động
++ WO: lệnh sản xuất
++ item_id: mã sản phẩm
++ mould_id: mã khuôn
++ product_type: nhóm sản phẩm
++ qty_actual: tổng số lượng sản phẩm
++ qty_good: số lượng sản phẩm đạt
++ qty_defect: số lượng sản phẩm lỗi
++ weight_actual: khối lượng của tổng sản phẩm
++ weight_defect: khối lượng của sản phẩm lỗi
++ work_hours: thời gian làm việc
++ lost_hours_total: thời gian dừng máy
++ qty_plan: sản lượng kế hoạch
++ capacity: công suất tiêu chuẩn (pcs/h)
++ start: giờ bắt đầu
++ end: giờ kết thúc
++ shift: ca làm việc (ngày/đêm) (string).
++ actual_capacity: công suất thực tế (pcs/h)
 - Phạm vi dữ liệu: 10 tháng đầu năm 2025.
 Phương pháp:
 - Tổng hợp và làm sạch dữ liệu: xử lí dữ liệu bị thiếu/nhập sai/outliner (GoogleSheet/PowerQuery).
