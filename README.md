@@ -78,6 +78,8 @@ df['actual_cycle_time']= df['actual_cycle_time'].astype('float')
 ```
 ### Tính toán các chỉ số bằng DAX:
 ```DAX Availability = DIVIDE(SUM(cleaned_data[Run_time]),SUM(cleaned_data[work_hours]))
+Run_time = cleaned_data[work_hours]-cleaned_data[lost_hours_total]
+capacity_h_per_pcs = DIVIDE(1,cleaned_data[capacity])
 Performance = DIVIDE(SUMX(cleaned_data, cleaned_data[capacity_h_per_pcs]*cleaned_data[qty_actual]),SUM(cleaned_data[Run_time]))
 Quality = DIVIDE(SUM(cleaned_data[qty_good]),SUM(cleaned_data[qty_actual]))
 OEE = [Availability]*[Performance]*[Quality]```
