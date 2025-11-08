@@ -1,4 +1,4 @@
-<img width="1982" height="126" alt="image" src="https://github.com/user-attachments/assets/cf97628d-6eea-430e-b3dd-874ff58851c6" /><img width="1067" height="110" alt="image" src="https://github.com/user-attachments/assets/609ebf95-3ba4-49bb-b153-9ff40a6da932" /># Đề tài: Đo lường hiệu suất máy móc và tìm nguyên nhân gây lãng phí trong quá trình sản xuất thông qua chỉ số OEE
+# Đề tài: Đo lường hiệu suất máy móc và tìm nguyên nhân gây lãng phí trong quá trình sản xuất thông qua chỉ số OEE
 
 ## 1.Giới thiệu:
 ### Bối cảnh:
@@ -147,7 +147,7 @@ Thiếu hụt lao động thời vụ làm OEE giảm mạnh (8%) trong tháng 8
 #### 3.3.1.Phân tích OEE theo ca của từng cụm máy:
 ![OEEtheocatheomay](https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEtheocatheomay.png)
 
-![OEEtong](https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEtong.png)
+
 
 
 
