@@ -108,6 +108,7 @@ OEE = [Availability]*[Performance]*[Quality]
 
 Mức độ tác động đến OEE: CT -> NZ -> SC -> PG:
 CT và SC có OEE thấp nhưng tác động nhiều: vì có số lượng máy nhiều và sản xuất nhóm sản phẩm chính.
+
 => cần cải thiện hiệu suất 2 nhóm máy này.
 
 PG có OEE cao nhưng tác động ít: sản phẩm phụ nên máy ít chạy hơn.
@@ -173,14 +174,14 @@ Thiếu hụt lao động thời vụ làm OEE giảm mạnh (8%) trong tháng 8
 ## 4.Kết luận:
 - OEE nhà máy đạt 85.94% (OEE cao nhưng chưa duy trì ổn định qua các tháng).
 - Trong tháng 8, OEE giảm mạnh (6%) và ở mức thấp nhất từ đầu năm tới nay.
-+ Do các cụm máy NZ, PG, CT phải ngưng nhiều vì thiếu hụt lao động thời vụ, đồng thời cụm máy SC bị hư hỏng nhiều nhất.
+   + Do các cụm máy NZ, PG, CT phải ngưng nhiều vì thiếu hụt lao động thời vụ, đồng thời cụm máy SC bị hư hỏng nhiều nhất.
 
 => Cần chuẩn bị nguồn nhân lực trước các dịp lễ, tết: tìm thêm nhà cung cấp thời vụ, tạo các khoản tiền thưởng thêm vào mùa cao điểm để giữ chân người lao động.
 - Về tình trạng máy móc:
-+ Cụm máy SC tốc độ cao nhưng có xu hướng hư hỏng nhiều từ tháng 7 tới nay.
+   + Cụm máy SC tốc độ cao nhưng có xu hướng hư hỏng nhiều từ tháng 7 tới nay.
 
 => Xem lại công tác bảo trì máy, có thể giảm tốc độ chạy máy.
-+ Cụm máy CT được điều chỉnh tăng tốc độ từ tháng 9, nhưng thời gian ngưng máy cũng nhiều hơn.
+   + Cụm máy CT được điều chỉnh tăng tốc độ từ tháng 9, nhưng thời gian ngưng máy cũng nhiều hơn.
 
 => Xem xét giảm tốc độ chạy lại để máy ổn định, nghiên cứu sử dụng các máy PG để chạy phụ các máy chính.
 - Chất lượng sản phẩm ca đêm tốt hơn ca ngày (ở cụm máy có công nhân thời vụ):
