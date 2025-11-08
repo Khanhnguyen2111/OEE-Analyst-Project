@@ -1,4 +1,4 @@
-# Đề tài: Đo lường hiệu suất máy móc và tìm nguyên nhân gây lãng phí trong quá trình sản xuất thông qua chỉ số OEE
+<img width="1982" height="126" alt="image" src="https://github.com/user-attachments/assets/cf97628d-6eea-430e-b3dd-874ff58851c6" /><img width="1067" height="110" alt="image" src="https://github.com/user-attachments/assets/609ebf95-3ba4-49bb-b153-9ff40a6da932" /># Đề tài: Đo lường hiệu suất máy móc và tìm nguyên nhân gây lãng phí trong quá trình sản xuất thông qua chỉ số OEE
 
 ## 1.Giới thiệu:
 ### Bối cảnh:
@@ -85,7 +85,73 @@ Quality = DIVIDE(SUM(cleaned_data[qty_good]),SUM(cleaned_data[qty_actual]))
 OEE = [Availability]*[Performance]*[Quality]
 ```
 ## 3.Nội dung phân tích:
-### 3.1. OEE tổng quan:
+### 3.1. OEE tổng quan và Đánh giá theo máy:
+![OEEtong](./OEEtong/OEEtong.png) 
+- OEE đạt 85.94% (tham khảo các công ty trong cùng lĩnh vực, chỉ số OEE trong ngành ép nhựa: đạt từ 80% trở lên là mức tốt).
+=> OEE có luôn duy trì mức tốt như vậy không ?
+![OEEtheomay](https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEtheomay.png)
+- OEE by Product type:
++ Có 2 nhóm đạt trên mức trung bình (NZ,PG) và 2 nhóm dưới tb (CT, SC).
+- OEE by Machine:
++ Tuy OEE cao nhưng không đồng đều: 10/16 máy có OEE thấp hơn mức trung bình.
++ Hai máy NZ01 và PG03 có OEE cao vượt trội.
+=> Hiệu suất nhà máy thực sự tốt hay do chỉ số các máy cao đột biến kéo lên ?
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEwithout.png" width="400">
+  <img src="https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEwithouttable.png" width="400">
+</p>
+Mức độ tác động đến OEE: CT -> NZ -> SC -> PG:
+CT và SC có OEE thấp nhưng tác động nhiều: vì có số lượng máy nhiều và sản xuất nhóm sản phẩm chính.
+=> cần cải thiện hiệu suất 2 nhóm máy này.
+
+PG có OEE cao nhưng tác động ít: sản phẩm phụ nên máy ít chạy hơn 
+=> tìm thêm đơn hàng hoặc đổi khuôn để máy chạy phụ nhóm sản phẩm chính.
+#### 3.1.1. Cách cải thiện nhóm máy SC:
+![OEEsc](https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEsc.png)
+Các máy SC: tốc độ chạy nhanh, ít sản phẩm lỗi nhưng dừng máy nhiều
+(từ tháng 6 đến tháng 8 Availability giảm hơn 12%).
+![OEEsc2](https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEsc2.png)
+Máy SC06 ngưng máy để Test 82 giờ và Lack of manpower 89 tiếng (chiếm phần lớn nhất) 
+=> Ngưng máy do các yếu tố khách quan thường tập trung vào máy SC06: chuyên dùng để Test và ưu tiên tắt máy khi thiếu công nhân => nên OEE SC06 thấp.
+![OEEsc3](https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEsc3.png)
+Tổng thời gian off để sửa máy (mục MC) trong khoảng tháng 7 - tháng 10 là 502 giờ (~64%): 
+=> Các máy SC đang “xuống cấp” kể từ tháng 7 , cần xem lại công tác bảo trì máy.
+#### 3.1.2. Cách cải thiện nhóm máy CT:
+![OEEct](https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEct.png)
+Từ tháng 9, Performance tăng 8% và Availability giảm 3%: chỉnh tốc độ máy chạy nhanh hơn nhưng ngưng máy nhiều hơn.
+=> Tiếp tục theo dõi thời gian ngưng máy, tìm điểm cân bằng giữa tốc độ và sự ổn định, có thể thử sử dụng các máy PG.
+Tổng kết 3.1:
+- OEE nhà máy đạt 85.94%:
+- OEE cao nhưng không duy trì ổn định qua các tháng:
++ 2 cụm máy SC và CT đang có OEE thấp. Cụm máy PG có OEE cao nhưng chạy các sản phẩm phụ nên máy ít sử dụng và ít tác động đến OEE toàn nhà máy hơn.
++ Cụm máy SC:Các máy SC có tốc độ chạy cao, nhưng ngưng để sửa chữa máy nhiều (đặc biệt là từ tháng 7).
+=> Cần xem lại công tác bảo trì các máy SC, có thể xem xét giảm tốc độ để máy ổn định hơn.
++ Cụm máy CT:Tốc độ máy thấp và ngưng máy nhiều.
+=> Từ tháng 9 đã tăng tốc độ chạy máy, nhưng cũng làm máy hư hỏng phải ngưng nhiều hơn (cân bằng giữa tốc độ và sự ổn định máy, có thể xem xét dùng các máy PG.
+### 3.2. Đánh giá OEE theo tháng:
+![OEEthang](https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEthang.png)
+OEE không phải luôn đạt mức tốt: tháng 8 giảm mạnh (hơn 6%), và vẫn chưa hồi phục lại.
+Nguyên nhân chính là do Availability giảm.
+#### 3.2.1.Phân tích OEE tháng 8:
+![OEEthang8](https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEthang8.png)
+Availability tháng 8 của nhóm NZ, PG, SC giảm khoảng 7% 
+=> Nguyên nhân ngưng máy chủ yếu là do Thiếu lao động thời vụ (off 351 giờ ~ 35.6%)
+#### 3.2.2.Phân tích yếu tố "Thiếu lao động thời vụ:
+![ThieuThoiVu](https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/thieuthoivu.png)
+Thiếu hụt lao động thời vụ làm OEE giảm mạnh (8%) trong tháng 8 và cả tháng 9, 10 (nguyên nhân là do lao động thời vụ đăng ký đi làm cho các hãng bánh trung thu).
+=> Cần chuẩn bị nhân lực khi sắp đến các mùa lễ tết: tuyển thêm công nhân chính thức, thuê thêm công ty cung cấp lao động thời vụ hoặc thưởng thêm tiền để giữ chân người lao động.
+### 3.3. Đánh giá OEE theo ca:
+![OEEtheoca](https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEtheoca.png)
+=> Chỉ số Quality ca đêm thường xuyên cao hơn ca ngày (ít sản phẩm lỗi hơn).
+#### 3.3.1.Phân tích OEE theo ca của từng cụm máy:
+![OEEtheocatheomay](https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEtheocatheomay.png)
+
+![OEEtong](https://raw.githubusercontent.com/Khanhnguyen2111/OEE-Analyst-Project/main/OEEtong/OEEtong.png)
+
+
+
+
 
 
 
