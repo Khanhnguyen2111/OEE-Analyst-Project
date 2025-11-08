@@ -3,13 +3,13 @@
 ## 1.Giới thiệu:
 ### Bối cảnh:
 Công ty sản xuất vỏ ống nhựa chuyên đựng silicone:
-- Sản phẩm: thân ống (Cartridge), Vòi (Nozzle) và Nắp (Plunger).
-- 2 công đoạn chính: Ép tạo hình (tạo ra Cartridge, Nozzle, Plunger) và In lên Cartridge.
-- Các máy móc có hiệu suất khác nhau (mức độ hư hỏng, tốc độ chạy, chất lượng sản phẩm tạo ra khác nhau). Cần tìm ra những máy chạy tốt, máy chạy kém và phương án để đem lại hiệu quả sản xuất cao nhất.
+- 2 công đoạn chính: Ép tạo hình (tạo ra sản phẩm Ống (CT), Vòi (NZ) và Nắp (PG). Sau đó in họa tiết lên thân ống (SC).
+- Có nhiều máy móc đang hoạt động và tạo ra các loại sản phẩm khác nhau: việc theo dõi hiệu quả sản xuất đang dựa trên phỏng đoán: “máy A có vẻ đang chạy chậm”, “gần đây thấy máy B hư nhiều” ..v..v..
 ### Mục tiêu:
-- Số hóa hiệu suất hoạt động của máy móc thành các chỉ số có thể đo lường, từ đó tìm ra phương pháp nâng cao hiệu quả sản xuất.
+Áp dụng các chỉ số tính toán để có thể đo lường hiệu suất hoạt động của máy móc. Từ đó tìm ra phương pháp nâng cao hiệu quả sản xuất.
+
 ### Dữ liệu:
-- Nguồn dữ liệu: file GoogleSheet của công ty.
+- Nguồn và Phạm vi dữ liệu: file GoogleSheet của công ty (10 tháng đầu năm 2025).
 - Mô tả dữ liệu:
 + Date: ngày hoạt động
 + MC: tên của máy đang hoạt động
@@ -20,7 +20,7 @@ Công ty sản xuất vỏ ống nhựa chuyên đựng silicone:
 + qty_actual: tổng số lượng sản phẩm
 + qty_good: số lượng sản phẩm đạt
 + qty_defect: số lượng sản phẩm lỗi
-+ weight_actual: khối lượng của tổng sản phẩm
++ weight_total: khối lượng của sản phẩm đạt
 + weight_defect: khối lượng của sản phẩm lỗi
 + work_hours: thời gian làm việc
 + lost_hours_total: thời gian dừng máy
@@ -32,13 +32,13 @@ Công ty sản xuất vỏ ống nhựa chuyên đựng silicone:
 + actual_capacity: công suất thực tế (pcs/h)
 - Phạm vi dữ liệu: 10 tháng đầu năm 2025.
 ### Phương pháp:
-- Tổng hợp và làm sạch dữ liệu: xử lí dữ liệu bị thiếu/nhập sai (GoogleSheet/Python).
-- Tính toán: tính các chỉ số liên quan, phân tích sự tương quan của các yếu tố ảnh hưởng OEE (GoogleSheet/Python/PowerBI-DAX).
-- Trực quan hóa dữ liệu: Python/PowerBI.
+- Tổng hợp và làm sạch dữ liệu: xử lí dữ liệu bị nhập thiếu/nhập sai (GoogleSheet/Python)
+- Tính toán: tính các chỉ số cần thiết cho quá trình phân tích (GoogleSheet, PowerBI-DAX).
+- Trực quan hóa dữ liệu: PowerBI.
 ### Kết quả mong đợi:
-- Đánh giá hiệu suất máy móc hiện tại (xấu/trung bình/tốt).
+- Đánh giá hiệu suất máy móc hiện tại (xấu/tốt, điểm mạnh/điểm yếu ..v..v..).
 - Tìm ra những yếu tố gây lãng phí trong sản xuất và phương pháp để cải thiện.
-## 2.Quy trình triển khai:
+## 2.Xử lí dữ liệu:
 ### Làm sạch dữ liệu với Python:
 Link Google Collab: https://colab.research.google.com/drive/1Sd5Ytxo4ZZAUzg-nViaIKhYms38vSiN-?usp=sharing
 
@@ -82,10 +82,13 @@ Run_time = cleaned_data[work_hours]-cleaned_data[lost_hours_total]
 capacity_h_per_pcs = DIVIDE(1,cleaned_data[capacity])
 Performance = DIVIDE(SUMX(cleaned_data, cleaned_data[capacity_h_per_pcs]*cleaned_data[qty_actual]),SUM(cleaned_data[Run_time]))
 Quality = DIVIDE(SUM(cleaned_data[qty_good]),SUM(cleaned_data[qty_actual]))
-OEE = [Availability]*[Performance]*[Quality]```
-
-### Nội dung phân tích:
+OEE = [Availability]*[Performance]*[Quality]
 ```
+## 3.Nội dung phân tích:
+### 3.1. OEE tổng quan:
+
+
+
 
 
   
